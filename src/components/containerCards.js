@@ -19,7 +19,7 @@ const ContainerCards = () => {
   const GetHeros = async () => {
     try {
       const data = await fetch(
-        `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=53666d04ca6b65987f21c8e9a9deebcd&hash=ddd453cff5252b8060fc56d995faf28a`
+        `http://gateway.marvel.com/v1/public/characters?orderBy=name&limit=96&ts=1&apikey=53666d04ca6b65987f21c8e9a9deebcd&hash=ddd453cff5252b8060fc56d995faf28a`
       );
       const elementos = await data.json();
       setListHero(elementos.data.results);

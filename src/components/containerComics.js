@@ -17,7 +17,7 @@ export const ContainerComicsStyle = styled.header`
 const ContainerComics = () => {
   const { characterId } = useParams();
   const [listComics, setListComics] = useState([]);
-  const BASE_PATH = `http://gateway.marvel.com/v1/public/characters/${characterId}?ts=1&apikey=53666d04ca6b65987f21c8e9a9deebcd&hash=ddd453cff5252b8060fc56d995faf28a`;
+  const BASE_PATH = `http://gateway.marvel.com/v1/public/characters/${characterId}/comics?orderBy=onsaleDate&ts=1&apikey=53666d04ca6b65987f21c8e9a9deebcd&hash=ddd453cff5252b8060fc56d995faf28a`;
   // API CALL
   const GetComics = async () => {
     try {
@@ -25,7 +25,7 @@ const ContainerComics = () => {
       const allComics = await data.json();
       const items = allComics.data.results;
       setListComics(items);
-      console.log(items);
+      console.log(allComics.data.results);
     } catch {
       console.log("error API");
     }
@@ -36,12 +36,13 @@ const ContainerComics = () => {
     GetComics();
   }, []);
 
-  const renderComics = listComics.map((comic) => {
+  const renderComics = listComics.map((comic, i) => {
     return (
       <CardComics
-        name={comic.name}
+        name={comic.title}
         img={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-        key={comic.id}
+        // details={comic.description}
+        key={i}
       />
     );
   });

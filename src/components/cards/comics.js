@@ -5,7 +5,7 @@ export const CardComicStyle = styled.div`
   margin-top: 15px;
   border: 1px solid grey;
   border-radius: 5px;
-  height: 16vh;
+  height: auto;
   width: 60vw;
   background-color: #fafafa;
   box-shadow: 0 2px 5px grey;
@@ -19,12 +19,17 @@ export const CardComicStyle = styled.div`
   .detailsComic {
     padding: 15px;
   }
+  .detailsComic h2 {
+    font-size: 1.5em;
+  }
   .detailsComic p {
     color: black;
     margin-top: 15px;
   }
   @media (max-width: 575.98px) {
-    width: 80vw;
+    .detailsComic h2 {
+      font-size: 1em;
+    }
   }
 `;
 // styles Cards Comics
