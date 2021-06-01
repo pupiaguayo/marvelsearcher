@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import CardHero from "../cards/hero";
+import CardHero from "./cards/hero";
+import { Link } from "react-router-dom";
 // styles Container Cards Comic
 export const ContainerStyle = styled.header`
   grid-column: 1/-1;
@@ -35,11 +36,13 @@ const ContainerCards = () => {
 
   const HerosData = listHero.map((h) => {
     return (
-      <CardHero
-        name={h.name}
-        img={`${h.thumbnail.path}.${h.thumbnail.extension}`}
-        key={h.id}
-      />
+      <Link to={`/HeroDetails/${h.id}`} style={{ textDecoration: "none" }}>
+        <CardHero
+          name={h.name}
+          img={`${h.thumbnail.path}.${h.thumbnail.extension}`}
+          key={h.id}
+        />
+      </Link>
     );
   });
   return <ContainerStyle>{HerosData}</ContainerStyle>;

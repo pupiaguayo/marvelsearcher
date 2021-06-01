@@ -1,5 +1,5 @@
 import React from "react";
-import ContainerCards from "../components/containerCards/containerCards";
+import ContainerCards from "../components/containerCards";
 import SearchBar from "../components/searchBar";
 const PageHome = () => {
   return (

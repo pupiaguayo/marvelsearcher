@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 // styles Cards Comics
 export const CardComicStyle = styled.div`
   margin-top: 15px;
@@ -30,20 +29,15 @@ export const CardComicStyle = styled.div`
 `;
 // styles Cards Comics
 
-const CardComics = () => {
+const CardComics = (Comic) => {
   return (
-    <Link to="/comicChoose" style={{ textDecoration: "none" }}>
-      <CardComicStyle>
-        <img
-          src="https://images.unsplash.com/photo-1534809027769-b00d750a6bac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
-          alt=""
-        />
-        <div className="detailsComic">
-          <h2>Comic Name</h2>
-          <p>Comic Details</p>
-        </div>
-      </CardComicStyle>
-    </Link>
+    <CardComicStyle>
+      <img src={Comic.img} alt="" />
+      <div className="detailsComic">
+        <h2>{Comic.name}</h2>
+        <p>{Comic.details}</p>
+      </div>
+    </CardComicStyle>
   );
 };
 export default CardComics;

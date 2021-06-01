@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 // styles Cards Hero
 export const CardStyle = styled.div`
   width: 246px;
@@ -30,12 +29,10 @@ export const CardStyle = styled.div`
 
 const CardHero = (hero) => {
   return (
-    <Link to="/heroDetails" style={{ textDecoration: "none" }}>
-      <CardStyle>
-        <img src={hero.img} alt="" />
-        <h2>{hero.name}</h2>
-      </CardStyle>
-    </Link>
+    <CardStyle>
+      <img src={hero.img} alt="Img Hero" />
+      <h2>{hero.name}</h2>
+    </CardStyle>
   );
 };
 export default CardHero;

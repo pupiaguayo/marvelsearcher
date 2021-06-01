@@ -17,7 +17,11 @@ function App() {
       <Grid>
         <Switch>
           <Route exact path="/" component={PageHome} />
-          <Route exact path="/heroDetails" component={HeroDetails} />
+          <Route
+            exact
+            path="/heroDetails/:characterId"
+            component={HeroDetails}
+          />
           <Route exact path="/comicChoose" component={ComicSelected} />
         </Switch>
         <Footer />
