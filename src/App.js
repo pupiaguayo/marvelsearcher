@@ -22,7 +22,7 @@ function App() {
             path="/heroDetails/:characterId"
             component={HeroDetails}
           />
-          <Route exact path="/comicChoose" component={ComicSelected} />
+          <Route exact path="/comicChoose/:comicId" component={ComicSelected} />
         </Switch>
         <Footer />
       </Grid>

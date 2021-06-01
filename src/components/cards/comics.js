@@ -12,8 +12,7 @@ export const CardComicStyle = styled.div`
   display: flex;
   img {
     object-fit: cover;
-    width: 9.375em;
-    height: 16vh;
+    width: 8em;
     border-radius: 5px;
   }
   .detailsComic {
@@ -21,6 +20,8 @@ export const CardComicStyle = styled.div`
   }
   .detailsComic h2 {
     font-size: 1.5em;
+    color: #505050;
+    font-weight: bold;
   }
   .detailsComic p {
     color: black;

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import CardComics from "./cards/comics";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 // styles Container Cards
 export const ContainerComicsStyle = styled.header`
   grid-column: 1/-1;
@@ -38,12 +39,14 @@ const ContainerComics = () => {
 
   const renderComics = listComics.map((comic, i) => {
     return (
-      <CardComics
-        name={comic.title}
-        img={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-        // details={comic.description}
-        key={i}
-      />
+      <Link to={`/comicChoose/${comic.id}`} style={{ textDecoration: "none" }}>
+        <CardComics
+          name={comic.title}
+          img={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+          details={comic.description}
+          key={i}
+        />
+      </Link>
     );
   });
   return <ContainerComicsStyle>{renderComics}</ContainerComicsStyle>;

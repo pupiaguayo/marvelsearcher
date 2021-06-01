@@ -1,26 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
 // styles Comic Choose
 export const ComicChooseStyle = styled.div`
   grid-column: 1/-1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  .detailsComic {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 100px;
+    width: 100vw;
+  }
   img {
     object-fit: contain;
-    width: 28vw;
+    width: 30vw;
+    height: auto;
     padding: 15px;
     border-radius: 5px;
-  }
-  .detailsComic {
-    padding: 15px;
-    width: 40vw;
   }
   .detailsComic h2 {
     color: #3e3e3e;
     font-weight: bold;
-    font-size: 2.1875em;
+    font-size: 2em;
+  }
+  .infoComic {
+    padding: 15px;
+    width: 40vw;
   }
   .comicDates {
     color: #3e3e3e;
@@ -36,23 +41,56 @@ export const ComicChooseStyle = styled.div`
       object-fit: contain;
       width: 80vw;
     }
+    .detailsComic {
+      flex-direction: column;
+      margin: 10px auto;
+    }
+    .infoComic,
+    img {
+      margin: auto;
+      width: 80vw;
+    }
   }
 `;
 // styles comic Choose
 
 const ComicChoose = () => {
-  return (
-    <ComicChooseStyle>
-      <img
-        src="https://images.unsplash.com/photo-1534809027769-b00d750a6bac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
-        alt=""
-      />
+  const { comicId } = useParams();
+  const [comic, setComic] = useState([]);
+  // API CALL
+  const ComicSelect = async () => {
+    try {
+      const data = await fetch(
+        `http://gateway.marvel.com/v1/public/comics/${comicId}?&ts=1&apikey=53666d04ca6b65987f21c8e9a9deebcd&hash=ddd453cff5252b8060fc56d995faf28a`
+      );
+      const comicData = await data.json();
+      const comicItem = comicData.data.results;
+      setComic(comicItem);
+      console.log(comicItem);
+    } catch {
+      console.log("error API");
+    }
+  };
+  useEffect(() => {
+    ComicSelect();
+  }, []);
+  const comicPage = comic.map((item, i) => {
+    return (
       <div className="detailsComic">
-        <h2>Comic Name</h2>
-        <p className="comicDates">Comic Dates</p>
-        <p className="comicDetails">Comic Details</p>
+        <img
+          src={`${item.thumbnail.path}.${item.thumbnail.extension}`}
+          alt="Image Comic"
+        />
+        <div className="infoComic">
+          <h2>{item.title}</h2>
+          <p className="comicDates">
+            {new Date(item.dates[i].date).toLocaleDateString()}
+          </p>
+          <p className="comicDetails">{item.description}</p>
+        </div>
       </div>
-    </ComicChooseStyle>
-  );
+    );
+  });
+  return <ComicChooseStyle>{comicPage}</ComicChooseStyle>;
 };
 export default ComicChoose;
