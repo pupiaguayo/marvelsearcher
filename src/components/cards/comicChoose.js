@@ -9,18 +9,32 @@ export const ComicChooseStyle = styled.div`
   flex-wrap: wrap;
   img {
     object-fit: contain;
-    width: 40vw;
-    height: 80vh;
+    width: 28vw;
+    padding: 15px;
     border-radius: 5px;
   }
-  .descriptionComic {
-    border: 1px solid red;
+  .detailsComic {
+    padding: 15px;
+    width: 40vw;
+  }
+  .detailsComic h2 {
+    color: #3e3e3e;
+    font-weight: bold;
+    font-size: 2.1875em;
+  }
+  .comicDates {
+    color: #3e3e3e;
+    font-weight: bold;
+    padding-top: 40px;
+  }
+  .comicDetails {
+    color: #3e3e3e;
+    padding-top: 40px;
   }
   @media (max-width: 575.98px) {
     img {
       object-fit: contain;
       width: 80vw;
-      height: 80vh;
     }
   }
 `;
@@ -35,7 +49,8 @@ const ComicChoose = () => {
       />
       <div className="detailsComic">
         <h2>Comic Name</h2>
-        <p>Comic Details</p>
+        <p className="comicDates">Comic Dates</p>
+        <p className="comicDetails">Comic Details</p>
       </div>
     </ComicChooseStyle>
   );
