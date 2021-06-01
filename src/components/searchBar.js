@@ -49,7 +49,10 @@ const SearchBar = () => {
     <SearchBarStyle>
       <div className="LogoAndInput">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <img src="https://i.ibb.co/w7H3zKQ/marvel-logo-4.png"></img>
+          <img
+            src="https://i.ibb.co/w7H3zKQ/marvel-logo-4.png"
+            alt="Logo Marvel"
+          ></img>
         </Link>
         <div className="search">
           <i class="fas fa-search"></i>

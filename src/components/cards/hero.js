@@ -28,15 +28,12 @@ export const CardStyle = styled.div`
 `;
 // styles Cards Hero
 
-const CardHero = () => {
+const CardHero = (hero) => {
   return (
     <Link to="/heroDetails" style={{ textDecoration: "none" }}>
       <CardStyle>
-        <img
-          src="https://images.unsplash.com/photo-1534809027769-b00d750a6bac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
-          alt=""
-        />
-        <h2>Spider Man (Morales)</h2>
+        <img src={hero.img} alt="" />
+        <h2>{hero.name}</h2>
       </CardStyle>
     </Link>
   );

@@ -15,8 +15,6 @@ export const ComicChooseStyle = styled.div`
   }
   .descriptionComic {
     border: 1px solid red;
-    width: 40vw;
-    height: 80vh;
   }
   @media (max-width: 575.98px) {
     img {
