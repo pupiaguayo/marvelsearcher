@@ -20,9 +20,12 @@ export const CardStyle = styled.div`
     padding: 20px;
     font-size: 1em;
     color: white;
+    background-color: rgba(46, 49, 49, 0.7);
+    width: 206px;
+    height: 25px;
   }
   :hover {
-    box-shadow: 0 8px 5px grey;
+    box-shadow: 5px 8px 5px black;
   }
 `;
 // styles Cards Hero

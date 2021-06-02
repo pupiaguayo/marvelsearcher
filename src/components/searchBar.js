@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -45,6 +45,11 @@ export const SearchBarStyle = styled.header`
 // styles SearchBar
 
 const SearchBar = () => {
+  const [inputValue, setInputValue] = useState("");
+  const searchHero = (e) => {
+    setInputValue(e.target.value);
+    console.log(inputValue);
+  };
   return (
     <SearchBarStyle>
       <div className="LogoAndInput">
@@ -54,10 +59,15 @@ const SearchBar = () => {
             alt="Logo Marvel"
           ></img>
         </Link>
-        <div className="search">
+        <form className="search">
           <i class="fas fa-search"></i>
-          <input type="text" placeholder="Buscar" />
-        </div>
+          <input
+            type="text"
+            placeholder="Buscar"
+            value={inputValue}
+            onChange={searchHero}
+          />
+        </form>
       </div>
       <i class="far fa-star favourites"></i>
     </SearchBarStyle>
