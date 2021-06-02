@@ -16,7 +16,7 @@ function App() {
     <Router>
       <Grid>
         <Switch>
-          <Route exact path="/" component={PageHome} />
+          <Route exact path="/:heroName?" component={PageHome} />
           <Route
             exact
             path="/heroDetails/:characterId"

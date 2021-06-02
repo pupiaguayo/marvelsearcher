@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 // styles SearchBar
 export const SearchBarStyle = styled.header`
@@ -46,9 +46,13 @@ export const SearchBarStyle = styled.header`
 
 const SearchBar = () => {
   const [inputValue, setInputValue] = useState("");
+  const history = useHistory();
   const searchHero = (e) => {
     setInputValue(e.target.value);
-    console.log(inputValue);
+  };
+  const submitHero = () => {
+    history.push("/" + inputValue);
+    setInputValue("");
   };
   return (
     <SearchBarStyle>
@@ -59,7 +63,7 @@ const SearchBar = () => {
             alt="Logo Marvel"
           ></img>
         </Link>
-        <form className="search">
+        <form className="search" onSubmit={submitHero}>
           <i class="fas fa-search"></i>
           <input
             type="text"
