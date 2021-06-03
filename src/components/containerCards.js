@@ -16,7 +16,7 @@ export const ContainerStyle = styled.header`
 const ContainerCards = () => {
   const [listHero, setListHero] = useState([]);
   const location = useLocation();
-  const [name, setName] = useState(location.pathname.split("/").join(""));
+  const [name, setName] = useState(location.pathname.substr(1));
   // API CALL
   const GetHeros = async () => {
     let URL;
