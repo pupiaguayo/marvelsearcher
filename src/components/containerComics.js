@@ -3,6 +3,16 @@ import styled from "styled-components";
 import CardComics from "./cards/comics";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import {
+  ComicsSel,
+  ComicsErrorSel,
+  isFetchComicsSel,
+} from "../Redux/reducers/selector";
+import { fetchComics } from "../Redux/actions/comic";
+import Loading from "./loading";
+import ErrorCards from "./error";
+
 // styles Container Cards
 export const ContainerComicsStyle = styled.header`
   grid-column: 1/-1;
@@ -17,24 +27,14 @@ export const ContainerComicsStyle = styled.header`
 
 const ContainerComics = () => {
   const { characterId } = useParams();
-  const [listComics, setListComics] = useState([]);
-  const BASE_PATH = `http://gateway.marvel.com/v1/public/characters/${characterId}/comics?orderBy=onsaleDate&ts=1&apikey=53666d04ca6b65987f21c8e9a9deebcd&hash=ddd453cff5252b8060fc56d995faf28a`;
-  // API CALL
-  const GetComics = async () => {
-    try {
-      const data = await fetch(`${BASE_PATH}`);
-      const allComics = await data.json();
-      const items = allComics.data.results;
-      setListComics(items);
-      console.log(allComics.data.results);
-    } catch {
-      console.log("error API");
-    }
-  };
+  const dispatch = useDispatch();
+  const isFetchComics = useSelector(isFetchComicsSel, shallowEqual);
+  const listComics = useSelector(ComicsSel, shallowEqual);
+  const errorComics = useSelector(ComicsErrorSel, shallowEqual);
 
-  // API CALL
+  // DISPATCH ACTION COMICS TO REDUX
   useEffect(() => {
-    GetComics();
+    dispatch(fetchComics(characterId));
   }, []);
 
   const renderComics = listComics.map((comic, i) => {
@@ -49,6 +49,13 @@ const ContainerComics = () => {
       </Link>
     );
   });
-  return <ContainerComicsStyle>{renderComics}</ContainerComicsStyle>;
+  return (
+    <ContainerComicsStyle>
+      {" "}
+      {isFetchComics && <Loading></Loading>}
+      {renderComics}
+      {!isFetchComics && !listComics?.length && <ErrorCards></ErrorCards>}
+    </ContainerComicsStyle>
+  );
 };
 export default ContainerComics;

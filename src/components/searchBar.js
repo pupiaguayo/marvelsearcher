@@ -26,10 +26,11 @@ export const SearchBarStyle = styled.header`
     outline: none;
     border: none;
   }
+
   .search:hover {
     opacity: 1;
     i {
-      display: none;
+      opacity: 1;
     }
   }
   .LogoAndInput img {

@@ -9,15 +9,19 @@ const initialState = {
   error: undefined,
   heroes: [],
 };
+
+// REDUCER CASE HEROES
 const heroesReducer = createReducer(initialState, (builder) => {
   builder.addCase(START_FETCH_HEROES, (state, action) => {
     return {
       ...state,
+      isFetchHeroes: true,
     };
   });
   builder.addCase(SUCCESS_FETCH_HEROES, (state, action) => {
     return {
       ...state,
+      isFetchHeroes: false,
       heroes: action.payload,
     };
   });
@@ -25,7 +29,13 @@ const heroesReducer = createReducer(initialState, (builder) => {
   builder.addCase(ERROR_FETCH_HEROES, (state, action) => {
     return {
       ...state,
+      isFetchHeroes: false,
+      heroes: [],
+      error: action.payload.error,
     };
+  });
+  builder.addDefaultCase((state, action) => {
+    return state;
   });
 });
 
