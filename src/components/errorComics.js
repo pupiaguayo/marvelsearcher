@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-// styles Loading
-export const ErrorStyle = styled.div`
+// styles error
+export const ErrorComicStyle = styled.div`
   margin-top: 6vh;
   color: red;
   text-decoration: none;
@@ -27,13 +27,12 @@ export const ErrorStyle = styled.div`
   }
 `;
 // styles Loading
-const ErrorCards = () => {
+const ErrorComics = () => {
   return (
-    <ErrorStyle>
+    <ErrorComicsStyle>
       <h2>Resultado no encontrado</h2>
-      <p className="anotherSearch">Por favor intente con otra busqueda</p>
-      <p>Por ejemplo: Spider-Man</p>
-    </ErrorStyle>
+      <p className="anotherSearch">Comics no disponibles</p>
+    </ErrorComicsStyle>
   );
 };
-export default ErrorCards;
+export default ErrorComics;
