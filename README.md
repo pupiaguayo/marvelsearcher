@@ -1,3 +1,5 @@
 # marvelsearcher
 
-Site under constructions. Look other branchs
+Site under constructions. 
+
+You can look this in other branchs (dev and reduxTest)
