@@ -65,4 +65,6 @@ Start the server
   
 ## Screenshots
 
-![App Screenshot]("https://i.ibb.co/23XPLJ5/Marvel-Page.jpg")
+
+![MarvelPage](https://user-images.githubusercontent.com/67393038/120928555-7c358b80-c6bb-11eb-9c89-1fca4d1cb571.jpg)
+
