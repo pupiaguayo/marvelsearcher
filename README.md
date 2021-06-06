@@ -65,4 +65,4 @@ Start the server
   
 ## Screenshots
 
-![App Screenshot]("")
+![App Screenshot]"https://i.ibb.co/23XPLJ5/Marvel-Page.jpg")
