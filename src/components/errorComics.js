@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 // styles error
-export const ErrorComicStyle = styled.div`
+export const ErrorComicsStyle = styled.div`
   margin-top: 6vh;
   color: red;
   text-decoration: none;

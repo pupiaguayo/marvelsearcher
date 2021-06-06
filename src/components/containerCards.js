@@ -34,7 +34,7 @@ const ContainerCards = () => {
   // DISPATCH ACTION HEROES TO REDUX
   useEffect(() => {
     dispatch(fetchHeroes(name));
-  }, []);
+  }, [dispatch]);
 
   const HerosData = listHero.map((h) => {
     return (
@@ -47,9 +47,11 @@ const ContainerCards = () => {
       </Link>
     );
   });
+  console.log(listHero);
   const HerosError = () => {
     return <ErrorCards></ErrorCards>;
   };
+
   return (
     <ContainerStyle>
       {isFetchHeroes && <Loading></Loading>}

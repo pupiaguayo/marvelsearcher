@@ -12,6 +12,7 @@ import {
 import { fetchComics } from "../Redux/actions/comic";
 import Loading from "./loading";
 import ErrorCards from "./error";
+import ErrorComics from "./errorComics";
 
 // styles Container Cards
 export const ContainerComicsStyle = styled.header`
@@ -35,7 +36,7 @@ const ContainerComics = () => {
   // DISPATCH ACTION COMICS TO REDUX
   useEffect(() => {
     dispatch(fetchComics(characterId));
-  }, []);
+  }, [dispatch]);
 
   const renderComics = listComics.map((comic, i) => {
     return (
@@ -54,7 +55,7 @@ const ContainerComics = () => {
       {" "}
       {isFetchComics && <Loading></Loading>}
       {renderComics}
-      {!isFetchComics && !listComics?.length && <ErrorCards></ErrorCards>}
+      {!isFetchComics && !listComics?.length && <ErrorComics></ErrorComics>}
     </ContainerComicsStyle>
   );
 };

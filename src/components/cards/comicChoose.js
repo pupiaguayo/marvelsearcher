@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import {
+  ComicChooseSel,
+  ComicChooseErrorSel,
+  isFetchComicChooseSel,
+} from "../../Redux/reducers/selector";
+import { fetchComicChoose } from "../../Redux/actions/comicChoose";
+import Loading from "../loading";
+import ErrorComics from "../error";
 // styles Comic Choose
 export const ComicChooseStyle = styled.div`
   grid-column: 1/-1;
@@ -56,24 +65,14 @@ export const ComicChooseStyle = styled.div`
 
 const ComicChoose = () => {
   const { comicId } = useParams();
-  const [comic, setComic] = useState([]);
-  // API CALL
-  const ComicSelect = async () => {
-    try {
-      const data = await fetch(
-        `http://gateway.marvel.com/v1/public/comics/${comicId}?&ts=1&apikey=53666d04ca6b65987f21c8e9a9deebcd&hash=ddd453cff5252b8060fc56d995faf28a`
-      );
-      const comicData = await data.json();
-      const comicItem = comicData.data.results;
-      setComic(comicItem);
-      console.log(comicItem);
-    } catch {
-      console.log("error API");
-    }
-  };
+  const dispatch = useDispatch();
+  const isFetchComicChoose = useSelector(isFetchComicChooseSel, shallowEqual);
+  const comic = useSelector(ComicChooseSel, shallowEqual);
+
   useEffect(() => {
-    ComicSelect();
-  }, []);
+    dispatch(fetchComicChoose(comicId));
+  }, [dispatch]);
+
   const comicPage = comic.map((item, i) => {
     return (
       <div className="detailsComic">
@@ -91,6 +90,13 @@ const ComicChoose = () => {
       </div>
     );
   });
-  return <ComicChooseStyle>{comicPage}</ComicChooseStyle>;
+  return (
+    <ComicChooseStyle>
+      {" "}
+      {isFetchComicChoose && <Loading></Loading>}
+      {comicPage}
+      {!isFetchComicChoose && !comic?.length && <ErrorComics></ErrorComics>}
+    </ComicChooseStyle>
+  );
 };
 export default ComicChoose;

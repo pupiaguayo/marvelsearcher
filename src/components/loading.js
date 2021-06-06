@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 // styles Loading
 export const LoadingStyle = styled.div`
+  width: 100%;
   margin-top: 6vh;
   color: red;
   text-decoration: none;

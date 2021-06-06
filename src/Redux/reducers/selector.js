@@ -7,3 +7,9 @@ export const HeroesSel = (state) => state.heroesReducer.heroes;
 export const isFetchComicsSel = (state) => state.comicsReducer.isFetchComics;
 export const ComicsErrorSel = (state) => state.comicsReducer.error;
 export const ComicsSel = (state) => state.comicsReducer.comics;
+
+// EXPORT SELECTORS COMIC CHOOSE
+export const isFetchComicChooseSel = (state) =>
+  state.comicChooseReducer.isFetchComicChoose;
+export const ComicChooseErrorSel = (state) => state.comicChooseReducer.error;
+export const ComicChooseSel = (state) => state.comicChooseReducer.comicChoose;
