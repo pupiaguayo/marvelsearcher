@@ -22,7 +22,9 @@ To deploy this project run
 React, Redux Toolkit, Styled Components
 
   
-![Logo]("https://i.ibb.co/f1pwpTZ/marvel-logo-4.png")
+![Logo]
+![marvel-logo-4](https://user-images.githubusercontent.com/67393038/120931671-033d3080-c6c9-11eb-876d-37e7d6897fc5.png)
+
 
     
 ## Lessons Learned
