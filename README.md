@@ -1,7 +1,7 @@
 
 # Marvel Searcher
 
-Project for the Leniolabs Bootcamp. A Hero Searcher using the API provided by Marvel.
+ A Hero Searcher using the API provided by Marvel.
 
 ## Authors
 
