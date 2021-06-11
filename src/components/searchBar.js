@@ -34,9 +34,7 @@ export const SearchBarStyle = styled.header`
     }
   }
   .LogoAndInput img {
-    color: #20273e;
     height: 3.5vh;
-    font-family: "Roboto Mono", monospace;
   }
   .favourites {
     margin-right: 5vw;

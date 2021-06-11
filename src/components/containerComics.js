@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import CardComics from "./cards/comics";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import {
-  ComicsSel,
-  ComicsErrorSel,
-  isFetchComicsSel,
-} from "../Redux/reducers/selector";
+import { ComicsSel, isFetchComicsSel } from "../Redux/reducers/selector";
 import { fetchComics } from "../Redux/actions/comic";
 import Loading from "./loading";
-import ErrorCards from "./error";
 import ErrorComics from "./errorComics";
 
 // styles Container Cards
@@ -31,7 +26,6 @@ const ContainerComics = () => {
   const dispatch = useDispatch();
   const isFetchComics = useSelector(isFetchComicsSel, shallowEqual);
   const listComics = useSelector(ComicsSel, shallowEqual);
-  const errorComics = useSelector(ComicsErrorSel, shallowEqual);
 
   // DISPATCH ACTION COMICS TO REDUX
   useEffect(() => {

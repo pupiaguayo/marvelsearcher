@@ -2,6 +2,7 @@
 export const isFetchHeroesSel = (state) => state.heroesReducer.isFetchHeroes;
 export const HeroesErrorSel = (state) => state.heroesReducer.error;
 export const HeroesSel = (state) => state.heroesReducer.heroes;
+export const RandomHeroSel = (state) => state.heroesReducer.randomHero;
 
 // EXPORT SELECTORS COMICS
 export const isFetchComicsSel = (state) => state.comicsReducer.isFetchComics;

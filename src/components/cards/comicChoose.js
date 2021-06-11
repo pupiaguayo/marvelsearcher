@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import {
   ComicChooseSel,
-  ComicChooseErrorSel,
   isFetchComicChooseSel,
 } from "../../Redux/reducers/selector";
 import { fetchComicChoose } from "../../Redux/actions/comicChoose";

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import CardHero from "./cards/hero";
+import CardWelcome from "./cards/welcomeHero";
 import { Link, useLocation } from "react-router-dom";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import {
   HeroesSel,
-  HeroesErrorSel,
   isFetchHeroesSel,
+  RandomHeroSel,
 } from "../Redux/reducers/selector";
 import { fetchHeroes } from "../Redux/actions/heroes";
 import Loading from "./loading";
@@ -27,14 +28,15 @@ const ContainerCards = () => {
   const dispatch = useDispatch();
   const isFetchHeroes = useSelector(isFetchHeroesSel, shallowEqual);
   const listHero = useSelector(HeroesSel, shallowEqual);
-  const errorHeroes = useSelector(HeroesErrorSel, shallowEqual);
+  const initHero = useSelector(RandomHeroSel, shallowEqual);
   const location = useLocation();
-  const [name, setName] = useState(location.pathname.substr(1));
-
+  const [name] = useState(location.pathname.substr(1));
+  const randomNumber = Math.floor(Math.random() * (96 - 0)) + 0;
   // DISPATCH ACTION HEROES TO REDUX
   useEffect(() => {
-    dispatch(fetchHeroes(name));
+    dispatch(fetchHeroes(name, randomNumber));
   }, [dispatch]);
+  console.log(initHero);
 
   const HerosData = listHero.map((h) => {
     return (
@@ -47,14 +49,15 @@ const ContainerCards = () => {
       </Link>
     );
   });
-  console.log(listHero);
-  const HerosError = () => {
-    return <ErrorCards></ErrorCards>;
-  };
 
   return (
     <ContainerStyle>
       {isFetchHeroes && <Loading></Loading>}
+      <CardWelcome
+        name={initHero.name}
+        img={`${initHero?.thumbnail?.path}.${initHero?.thumbnail?.extension}`}
+        key={initHero.id}
+      />
       {HerosData}
       {!isFetchHeroes && !listHero?.length && <ErrorCards></ErrorCards>}
     </ContainerStyle>
