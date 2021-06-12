@@ -1,11 +1,13 @@
 import { createAction } from "@reduxjs/toolkit";
 
 export const START_FETCH_HEROES = "START_FETCH_HEROES";
+export const START_FETCH_RANDOMHERO = "START_FETCH_RANDOMHERO";
 export const ERROR_FETCH_HEROES = "ERROR_FETCH_HEROES";
 export const SUCCESS_FETCH_HEROES = "SUCCESS_FETCH_HEROES";
 export const SUCCESS_FETCH_RANDOMHERO = "SUCCESS_FETCH_RANDOMHERO";
 
 export const startFetchHeroes = createAction(START_FETCH_HEROES);
+export const startFetchRandomHero = createAction(START_FETCH_RANDOMHERO);
 export const errorFetchHeroes = createAction(ERROR_FETCH_HEROES);
 export const sucessFetchHeroes = createAction(SUCCESS_FETCH_HEROES);
 export const sucessFetchRandomHero = createAction(SUCCESS_FETCH_RANDOMHERO);
