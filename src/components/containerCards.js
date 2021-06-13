@@ -32,13 +32,11 @@ const ContainerCards = () => {
   const initHero = useSelector(RandomHeroSel, shallowEqual);
   const location = useLocation();
   const [name] = useState(location.pathname.substr(1));
-
   const randomNumber = Math.floor(Math.random() * (96 - 0)) + 0;
   // DISPATCH ACTION HEROES TO REDUX
   useEffect(() => {
     dispatch(fetchHeroes(name, randomNumber));
   }, [dispatch]);
-
   const HerosData = listHero.map((h) => {
     return (
       <Link to={`/HeroDetails/${h.id}`} style={{ textDecoration: "none" }}>
@@ -50,17 +48,21 @@ const ContainerCards = () => {
       </Link>
     );
   });
-  const heroInit = (
-    <CardWelcome
-      name={initHero?.name}
-      img={`${initHero?.thumbnail?.path}.${initHero?.thumbnail?.extension}`}
-      key={initHero?.id}
-    />
-  );
+  const heroInit = initHero.map((heroWelcome) => {
+    return (
+      <CardWelcome
+        name={heroWelcome?.name}
+        img={`${heroWelcome?.thumbnail?.path}.${heroWelcome?.thumbnail?.extension}`}
+        welcome="te da la bienvenida"
+        key={heroWelcome?.id}
+      />
+    );
+  });
+
   return (
     <ContainerStyle>
       {isFetchHeroes && <Loading></Loading>}
-      {initHero ? (
+      {initHero[0] ? (
         <>
           {" "}
           {heroInit}

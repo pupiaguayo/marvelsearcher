@@ -18,7 +18,7 @@ export const CardStyle = styled.div`
   h2 {
     position: absolute;
     padding: 20px;
-    font-size: 1em;
+    font-size: 1.2em;
     color: white;
     background-color: rgba(46, 49, 49, 0.7);
     width: 206px;

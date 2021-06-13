@@ -24,16 +24,17 @@ export const CardWelcomeStyle = styled.div`
     text-transform: uppercase;
     position: absolute;
     color: #f40911;
-    font: 0.5em;
+    font-size: 2.5em;
+    letter-spacing: 1px;
     margin: auto;
   }
   h3 {
     text-transform: uppercase;
     position: absolute;
     color: white;
-    font: 0.8em;
+    font-size: 1.2em;
     margin-top: 10vh;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
   }
   button {
     position: absolute;
@@ -52,7 +53,7 @@ const CardWelcome = (hero) => {
     <CardWelcomeStyle>
       <img src={hero.img} alt="Img Hero" />
       <h2>{hero.name} </h2>
-      <h3>TE DA LA BIENVENIDA</h3>
+      <h3>{hero.welcome}</h3>
     </CardWelcomeStyle>
   );
 };
