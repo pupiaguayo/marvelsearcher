@@ -138,4 +138,3 @@ Start the server
 
 ![MarvelPage](https://user-images.githubusercontent.com/67393038/120928555-7c358b80-c6bb-11eb-9c89-1fca4d1cb571.jpg)
 
->>>>>>> 75c3567672caf44f95879876707fa3a8eab326af
