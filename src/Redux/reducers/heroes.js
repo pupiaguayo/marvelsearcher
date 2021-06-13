@@ -25,7 +25,7 @@ const heroesReducer = createReducer(initialState, (builder) => {
     return {
       ...state,
       isFetchRandomHero: false,
-      randomHero: action.payload,
+      randomHero: [action.payload],
     };
   });
   builder.addCase(SUCCESS_FETCH_HEROES, (state, action) => {
