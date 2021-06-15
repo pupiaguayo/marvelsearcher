@@ -42,9 +42,6 @@ export const CardWelcomeStyle = styled.div`
     width: 100px;
     height: 40px;
   }
-  :hover {
-    box-shadow: 5px 8px 5px black;
-  }
 `;
 // styles Cards Hero
 

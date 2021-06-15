@@ -1,7 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import {
   START_FETCH_HEROES,
-  START_FETCH_RANDOMHERO,
   SUCCESS_FETCH_RANDOMHERO,
   SUCCESS_FETCH_HEROES,
   ERROR_FETCH_HEROES,

@@ -24,6 +24,19 @@ export const CardStyle = styled.div`
     width: 206px;
     height: 25px;
   }
+  button {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    height: 20px;
+    width: 20px;
+    margin-bottom: 340px;
+    margin-left: 220px;
+    i {
+      color: #ffffff;
+    }
+  }
+
   :hover {
     box-shadow: 5px 8px 5px black;
   }
@@ -35,6 +48,7 @@ const CardHero = (hero) => {
     <CardStyle>
       <img src={hero.img} alt="Img Hero" />
       <h2>{hero.name}</h2>
+      <button>{hero.button}</button>
     </CardStyle>
   );
 };
