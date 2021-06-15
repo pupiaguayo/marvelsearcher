@@ -61,11 +61,6 @@ Start the server
   npm run start
 ```
 
-  
-## Screenshots
-
-![App Screenshot]("")
-=======
 
 # Marvel Searcher
 
