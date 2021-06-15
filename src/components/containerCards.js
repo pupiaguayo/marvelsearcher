@@ -7,7 +7,6 @@ import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import {
   HeroesSel,
   isFetchHeroesSel,
-  isFetchRandomHeroSel,
   RandomHeroSel,
 } from "../Redux/reducers/selector";
 import { fetchHeroes } from "../Redux/actions/heroes";
@@ -43,6 +42,7 @@ const ContainerCards = () => {
         <CardHero
           name={h.name}
           img={`${h.thumbnail.path}.${h.thumbnail.extension}`}
+          button={<i class="far fa-star favourites"></i>}
           key={h.id}
         />
       </Link>
