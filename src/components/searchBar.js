@@ -72,7 +72,7 @@ const SearchBar = () => {
           />
         </form>
       </div>
-      <i class="far fa-star favourites"></i>
+      <i className="far fa-star favourites"></i>
     </SearchBarStyle>
   );
 };
