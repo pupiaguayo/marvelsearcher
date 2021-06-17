@@ -74,7 +74,7 @@ const ComicChoose = () => {
 
   const comicPage = comic.map((item, i) => {
     return (
-      <div className="detailsComic">
+      <div className="detailsComic" key={item.id}>
         <img
           src={`${item.thumbnail.path}.${item.thumbnail.extension}`}
           alt="Image Comic"

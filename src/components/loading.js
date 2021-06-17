@@ -57,7 +57,7 @@ export const LoadingStyle = styled.div`
 const Loading = () => {
   return (
     <LoadingStyle>
-      <div class="lds-ring">
+      <div className="lds-ring">
         <div></div>
         <div></div>
         <div></div>

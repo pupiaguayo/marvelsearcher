@@ -24,15 +24,15 @@ export const CardWelcomeStyle = styled.div`
     text-transform: uppercase;
     position: absolute;
     color: #f40911;
-    font-size: 2.5em;
-    letter-spacing: 1px;
-    margin: auto;
+    font-size: 1.9em;
+    width: 50vw;
+    text-align: center;
   }
   h3 {
     text-transform: uppercase;
     position: absolute;
     color: white;
-    font-size: 1.2em;
+    font-size: 1em;
     margin-top: 10vh;
     letter-spacing: 1px;
   }
