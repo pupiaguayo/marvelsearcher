@@ -38,12 +38,15 @@ const ContainerCards = () => {
   }, [dispatch]);
   const HerosData = listHero.map((h) => {
     return (
-      <Link to={`/HeroDetails/${h.id}`} style={{ textDecoration: "none" }}>
+      <Link
+        to={`/HeroDetails/${h.id}`}
+        style={{ textDecoration: "none" }}
+        key={h.id}
+      >
         <CardHero
           name={h.name}
           img={`${h.thumbnail.path}.${h.thumbnail.extension}`}
-          button={<i class="far fa-star favourites"></i>}
-          key={h.id}
+          button={<i className="far fa-star favourites"></i>}
         />
       </Link>
     );
