@@ -65,6 +65,7 @@ Start the server
 
   
 ## Screenshots Desktop and Mobile
+![ScreensMobile](https://user-images.githubusercontent.com/67393038/122464502-4cc13180-cf8d-11eb-81ef-f92c5d0fedfb.jpg)
 
 
 ![MarvelPage](https://user-images.githubusercontent.com/67393038/120928555-7c358b80-c6bb-11eb-9c89-1fca4d1cb571.jpg)
