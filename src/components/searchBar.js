@@ -63,7 +63,7 @@ const SearchBar = () => {
           ></img>
         </Link>
         <form className="search" onSubmit={submitHero}>
-          <i class="fas fa-search"></i>
+          <i className="fas fa-search"></i>
           <input
             type="text"
             placeholder="Buscar"

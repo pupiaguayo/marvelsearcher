@@ -34,12 +34,15 @@ const ContainerComics = () => {
 
   const renderComics = listComics.map((comic, i) => {
     return (
-      <Link to={`/comicChoose/${comic.id}`} style={{ textDecoration: "none" }}>
+      <Link
+        to={`/comicChoose/${comic.id}`}
+        style={{ textDecoration: "none" }}
+        key={i}
+      >
         <CardComics
           name={comic.title}
           img={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
           details={comic.description}
-          key={i}
         />
       </Link>
     );
